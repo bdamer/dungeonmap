@@ -7,11 +7,16 @@
         <div id="inputs">
             <label for="seed">Random Seed<input id="seed" type="text" value="0" /></label>
             <label for="seedCells">Seed Cells<input id="seedCells" type="text" value="[0,4], [15,4], [29,4]" /></label>
-            <label for="cellDensity">Cell Density<input id="cellDensity" type="text" value="0.2, 0.25, 0.4" /></label>
-            <input id="generate" type="button" value="Generate" />
+            <label for="cellDensity">Cell Density<input id="cellDensity" type="text" value="0.2, 0.25, 0.3" /></label>
         </div>
-
-        <canvas id="map" width="1024" height="512"></canvas>
+        <canvas id="map" width="960" height="320"></canvas>
+		<div id="actions">
+            <input id="createMap" type="button" value="Create" />
+            <input id="cluster" type="button" value="Cluster" />
+            <input id="link" type="button" value="Link" />
+            <input id="decluster" type="button" value="Decluster" />
+		</div>
+		
         <script src="./dist/bundle.js"></script>
     </body>
 </html>

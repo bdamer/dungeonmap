@@ -3,14 +3,28 @@ export enum CellFlavor {
     Regular,
     Corridor,
     Seed
-};
+}
+
+// Models the relationship between two neighboring cells.
+export class CellRel {
+    linked: boolean;
+    constructor(public from: Cell, public to: Cell) { }
+}
 
 export class Cell {
-    constructor(public x: number, public y: number, public flavor: CellFlavor) { }
+    // left, top, right, bottom
+    neighbors: CellRel[];
+    // flag to be used for clustering
+    visited: boolean;
+    // cluster id
+    cluster: string;
+
+    constructor(public x: number, public y: number, public flavor: CellFlavor) { 
+        this.neighbors = [null,null,null,null];
+    }
 }
 
 export class Zone {
-
     /**
      * Creates a new zone.
      * 
@@ -18,10 +32,9 @@ export class Zone {
      * @param density Chance to add a cell in this zone.
      */
     constructor(public range: number, public density: number) { }
-
 }
 
-export class Map {
+export class Dungeon {
 
     cells: Cell[];
     zones: Zone[];
@@ -30,5 +43,4 @@ export class Map {
         this.cells = new Array(width * height);
         this.zones = [];
     }
-
 }
